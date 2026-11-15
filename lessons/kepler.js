@@ -100,7 +100,7 @@ ${P.adv([["橢圓的幾何", "The geometry of an ellipse", [["到兩個焦點的
   </div></div>
  </div>
 </div></section>
-${P.nextBand(2,'為什麼是橢圓？為什麼靠近太陽就變快？是什麼東西在拉行星？','Why ellipses? Why faster near the Sun? What is pulling on the planets?','牛頓想到的第一步很奇怪：從一座山上往外丟石頭。','Newton\'s first step was strange: throwing a stone off a mountain.')}
+${P.nextBand('kepler','為什麼是橢圓？為什麼靠近太陽就變快？是什麼東西在拉行星？','Why ellipses? Why faster near the Sun? What is pulling on the planets?','牛頓想到的第一步很奇怪：從一座山上往外丟石頭。','Newton\'s first step was strange: throwing a stone off a mountain.')}
 ${P.std('表現預期 HS-ESS1-4（用數學或計算模型預測太陽系中天體的運動）。科學實踐：SEP 4 分析與詮釋數據、SEP 5 數學與計算思維。跨科概念：模式；尺度、比例與數量。行星資料：NASA 行星概況表（半長軸、公轉週期）。','Performance expectation HS-ESS1-4 (use mathematical or computational representations to predict the motion of orbiting objects in the solar system). Practices: SEP 4 Analyzing and Interpreting Data, SEP 5 Mathematical and Computational Thinking. Crosscutting concepts: Patterns; Scale, Proportion, and Quantity. Planet data: NASA planetary fact sheets (semi-major axis, orbital period).')}
 `,init(){
 const {t,tp,css,fit,$}=P;

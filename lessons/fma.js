@@ -76,7 +76,7 @@ ${P.adv([["從兩條直線合成一條式子", "Combining two straight-line resu
   </div></div>
  </div>
 </div></section>
-${P.nextBand(5,'力推了一段距離，東西就有了速度。東西停下來的時候，那些運動跑去哪裡了？','A force pushing over a distance gives an object speed. When the object stops, where does that motion go?','答案要等到工業革命：蒸汽機讓人發現，熱和運動可以互相轉換。','The answer came with the Industrial Revolution, when steam engines showed that heat and motion can turn into each other.')}
+${P.nextBand('fma','兩台車相撞的時候，誰推誰、推多久都很難量。有沒有什麼東西，在碰撞前後保持不變？','When two carts collide, who pushes whom and for how long is hard to measure. Is there anything that stays the same before and after?','其實牛頓寫下 F = ma 之前，英國皇家學會已經用碰撞實驗找到答案了。','In fact, before Newton wrote F = ma, the Royal Society had already found the answer with collision experiments.')}
 ${P.std('表現預期 HS-PS2-1（分析數據，支持牛頓第二定律描述的合力、質量與加速度的數學關係）。科學實踐：SEP 3 規劃與執行調查、SEP 4 分析與詮釋數據。跨科概念：因果、模式。','Performance expectation HS-PS2-1 (analyze data to support the claim that Newton\'s second law describes the mathematical relationship among net force, mass, and acceleration). Practices: SEP 3 Planning and Carrying Out Investigations, SEP 4 Analyzing and Interpreting Data. Crosscutting concepts: Cause and Effect, Patterns.')}
 `,init(){
 const {t,tp,css,fit,$}=P,D=4,TR=6;

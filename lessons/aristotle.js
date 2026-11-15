@@ -91,7 +91,7 @@ ${P.adv([["用方程式描述「重量 + 阻力」", "Writing \"weight + resista
   </div></div>
  </div>
 </div></section>
-${P.nextBand(0,'拿掉阻力之後，掉落跟重量真的完全無關嗎？在沒有真空機的年代，要怎麼證明？','Once resistance is gone, is falling truly independent of weight? How could anyone prove it before vacuum pumps existed?','伽利略想到兩個辦法：一個思想實驗，和一道把掉落放慢的斜坡。','Galileo came up with two tools: a thought experiment, and a ramp that slows a fall down.')}
+${P.nextBand('aristotle','拿掉阻力之後，掉落跟重量真的完全無關嗎？在沒有真空機的年代，要怎麼證明？','Once resistance is gone, is falling truly independent of weight? How could anyone prove it before vacuum pumps existed?','伽利略想到兩個辦法：一個思想實驗，和一道把掉落放慢的斜坡。','Galileo came up with two tools: a thought experiment, and a ramp that slows a fall down.')}
 ${P.std('為 HS-PS2-1 打基礎（運動與力的關係）。科學實踐：SEP 2 建立與使用模型、SEP 3 規劃與執行調查（控制變因）。跨科概念：因果、系統與系統模型。模擬使用簡化的線性阻力模型，並忽略浮力。','Groundwork for HS-PS2-1 (relationship between force and motion). Practices: SEP 2 Developing and Using Models, SEP 3 Planning and Carrying Out Investigations (controlling variables). Crosscutting concepts: Cause and Effect, Systems and System Models. The simulation uses a simplified linear drag model and ignores buoyancy.')}
 `,init(){
 const {t,tp,css,fit,$}=P,G=9.8,LEN=2,M=[1,.24];

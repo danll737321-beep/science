@@ -84,7 +84,7 @@ ${P.adv([["月亮檢驗的代數", "The algebra of the Moon test", [["等速圓�
   <div id="g-ans" class="hide" style="margin-top:14px"><p>${b('面積隨距離的平方變大（1、4、9），所以每單位面積分到的量變成 1、1/4、1/9。你的圖應該像上面噴漆的圖。重點是：散開的是「面」，面積是長 × 寬，所以是平方。','Area grows with the square of distance (1, 4, 9), so the share per unit area becomes 1, 1/4, 1/9. Your drawing should look like the spray-paint picture above. The key point: the pull spreads over a surface, and area is length × width, hence the square.')}</p></div>
  </div>
 </div></section>
-${P.nextBand(4,'知道了力有多大，那力到底怎麼改變運動？同樣的力推汽車和推腳踏車，結果為什麼不同？','We know how strong the force is. But how exactly does a force change motion? Why does the same push do different things to a car and a bicycle?','下一課自己做實驗車，量出力、質量和加速度的關係。','Next lesson you run a lab cart and measure how force, mass, and acceleration relate.')}
+${P.nextBand('gravity','知道了力有多大，那力到底怎麼改變運動？同樣的力推汽車和推腳踏車，結果為什麼不同？','We know how strong the force is. But how exactly does a force change motion? Why does the same push do different things to a car and a bicycle?','下一課自己做實驗車，量出力、質量和加速度的關係。','Next lesson you run a lab cart and measure how force, mass, and acceleration relate.')}
 ${P.std('表現預期 HS-PS2-4（用數學表示法預測物體間的重力）。科學實踐：SEP 5 數學與計算思維、SEP 6 建構解釋。跨科概念：模式；尺度、比例與數量。月球資料：平均距離 384,400 km，恆星月 27.32 天。','Performance expectation HS-PS2-4 (use mathematical representations of Newton\'s law of gravitation to predict gravitational forces). Practices: SEP 5 Mathematical and Computational Thinking, SEP 6 Constructing Explanations. Crosscutting concepts: Patterns; Scale, Proportion, and Quantity. Moon data: mean distance 384,400 km, sidereal month 27.32 days.')}
 `,init(){
 const {t,tp,$}=P;

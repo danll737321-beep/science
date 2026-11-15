@@ -96,7 +96,7 @@ ${P.adv([["平拋的軌跡是拋物線", "A sideways throw traces a parabola", [
   </div></div>
  </div>
 </div></section>
-${P.nextBand(3,'拉住月亮的，和拉蘋果的是同一個力嗎？如果是，它離地球越遠會變多弱？','Is the pull on the Moon the same as the pull on an apple? If so, how much weaker does it get farther from Earth?','牛頓用月亮做了一次檢驗，答案只差不到 1%。','Newton tested it with the Moon, and the numbers matched to within about 1%.')}
+${P.nextBand('cannon','拉住月亮的，和拉蘋果的是同一個力嗎？如果是，它離地球越遠會變多弱？','Is the pull on the Moon the same as the pull on an apple? If so, how much weaker does it get farther from Earth?','牛頓用月亮做了一次檢驗，答案只差不到 1%。','Newton tested it with the Moon, and the numbers matched to within about 1%.')}
 ${P.std('表現預期 HS-PS2-1（運動與力）、HS-ESS1-4（預測軌道運動）。科學實踐：SEP 2 建立與使用模型、SEP 5 數學與計算思維。跨科概念：系統與系統模型；尺度、比例與數量。模擬：地球質量 GM = 398,600 km³/s²，半徑 6,371 km，忽略空氣。','Performance expectations HS-PS2-1 (force and motion), HS-ESS1-4 (predicting orbital motion). Practices: SEP 2 Developing and Using Models, SEP 5 Mathematical and Computational Thinking. Crosscutting concepts: Systems and System Models; Scale, Proportion, and Quantity. Simulation: Earth GM = 398,600 km³/s², radius 6,371 km, no air.')}
 `,init(){
 const {t,tp,css,fit,$}=P;

@@ -5,13 +5,14 @@ const chain=[['亞里斯多德','Aristotle','規律被阻力蓋住了，要先�
  ['牛頓的砲彈','Newton\'s cannon','繞行 = 一直在掉，但一直掉不到地面','Orbiting = always falling, always missing'],
  ['萬有引力','Gravity','F = Gm₁m₂/r²，距離 2 倍，引力 1/4','F = Gm₁m₂/r²; twice as far, a quarter of the pull'],
  ['F = ma','F = ma','合力決定加速度：a = F/m','Net force sets acceleration: a = F/m'],
+ ['動量守恆','Momentum','碰撞時，mv 的總和不變','In a collision, total mv stays the same'],
  ['能量守恆','Energy','能量只會轉換，不會消失','Energy changes form, never disappears'],
  ['衛星','Satellite','v = √(GM/r)，T² ∝ r³：全部接在一起','v = √(GM/r), T² ∝ r³: everything connects']];
 P.reg('satellite',{html:`
 <section class="band"><div class="wrap hero">
  <div>
-  <span class="chip">${b('節點 8 · 1957–今天','Node 8 · 1957–today')}</span>
-  <h1>${b('設計一顆衛星：把前面七個節點全部用上','Design a Satellite: put all seven nodes to work')}</h1>
+  <span class="chip">${b('節點 9 · 1957–今天','Node 9 · 1957–today')}</span>
+  <h1>${b('設計一顆衛星：把前面八個節點全部用上','Design a Satellite: put all eight nodes to work')}</h1>
   <p class="lede" style="margin-top:14px">${b('1957 年，史普尼克一號上了太空，牛頓的砲彈終於真的發射了。今天天上有上萬顆衛星，每一顆的高度都是根據任務算出來的。這一課你要自己算，並完成三個任務。','In 1957 Sputnik 1 reached orbit, and Newton\'s cannonball was finally fired for real. Today there are over ten thousand satellites, each at an altitude chosen for its job. In this lesson you do the math yourself and complete three missions.')}</p>
  </div>
  </div></section>
@@ -44,7 +45,7 @@ P.reg('satellite',{html:`
 
 <section class="band lock" id="s-idea"><div class="wrap">
  <span class="chip">${b('新想法','The new idea')}</span>
- <h2>${b('八個節點，一條問題接力','Eight nodes, one relay of questions')}</h2>
+ <h2>${b('九個節點，一條問題接力','Nine nodes, one relay of questions')}</h2>
  <p>${b('每一個答案都是下一個問題的起點。你剛才用到的每一條式子，都可以追溯到前面某個節點的觀察和推理：','Every answer started the next question. Every formula you just used traces back to an observation and argument in an earlier node:')}</p>
  <div class="chain">${chain.map((c,i)=>`<div class="cl"><span class="n">${i+1}</span><b>${b(c[0],c[1])}</b><span>${b(c[2],c[3])}</span></div>`).join('')}</div>
  <p style="margin-top:14px">${b('還有一個反直覺的地方：越高的軌道速度越慢，但要把衛星送上去，反而要點火加速。多出來的能量會變成高度能，到了高處速度就降下來了，跟能量守恆那一課一樣。','One counterintuitive point: higher orbits are slower, yet to raise a satellite you fire the engine to speed up. The extra energy becomes height energy, and by the time it\'s up high it has slowed down, just as in the energy lesson.')}</p>

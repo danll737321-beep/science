@@ -177,3 +177,28 @@ html[data-lang=both] .ansb .en{display:inline;margin-left:6px;font-size:.85em}
 .adv summary .chip{margin:0}
 .advi{padding:12px 0;border-top:1px solid var(--line)}
 .eq{font:600 16px "Archivo","Noto Sans TC",sans-serif;background:var(--panel);border-radius:10px;padding:10px 14px;margin:6px 0 12px;overflow-x:auto;white-space:nowrap}
+
+/* parallel-lane home */
+.tl{overflow-x:auto;padding:4px 0 22px;scrollbar-width:thin}
+.gl{display:grid;--labw:120px;width:max-content;padding-right:max(5vw,16px)}
+.lh{position:sticky;left:0;z-index:3;background:var(--bg);padding:12px 10px 12px max(2vw,10px);border-right:1px solid var(--line);display:flex;align-items:flex-start}
+.lh b{font:700 15px "Archivo","Noto Sans TC";color:var(--ec,var(--ink));line-height:1.3}
+.gl>.eh{margin:0 4px;border-radius:12px 12px 0 0}
+.cell{display:flex;gap:10px;padding:10px;align-items:stretch;border-right:1px dashed var(--line);border-bottom:1px solid var(--line);min-width:180px}
+.cell .pc{flex:0 0 190px}
+.cell .note{flex:0 0 190px}
+.wcell{flex-direction:column;border-bottom:0}
+.wcell .wc{width:220px}
+.gl>.ax{margin:0}
+.pc.off{opacity:.55}
+.pc .n{background:var(--ec)}
+.rl{flex:0 0 auto;display:flex;align-items:center;padding:0 6px}
+.rl b{color:var(--ec);font:700 15px "Archivo","Noto Sans TC";writing-mode:horizontal-tb;white-space:nowrap}
+div.node.off{opacity:.5}
+@media(max-width:600px){.gl{--labw:84px}.lh b{font-size:13px}.cell .pc,.cell .note{flex-basis:160px}}
+.cell .pc{grid-template-columns:28px minmax(0,1fr);padding:10px;gap:2px 8px}
+.cell .pc .n{width:28px;height:28px;font-size:13px}
+.cell .pc b{font-size:15px}
+.cell .pc q{font-size:13px}
+html[data-lang=both] .cell .pc q .en,.cell .pc .go{display:none}
+html[data-lang=both] .cell .pc b .en{font-size:.8em}

@@ -2,7 +2,7 @@
 P.reg('energy',{html:`
 <section class="band"><div class="wrap hero">
  <div>
-  <span class="chip">${b('節點 7 · 1840 年代','Node 7 · 1840s')}</span>
+  <span class="chip">${b('節點 8 · 1840 年代','Node 8 · 1840s')}</span>
   <h1>${b('能量守恆：運動不會消失，只會換形式','Conservation of Energy: motion doesn\'t vanish, it changes form')}</h1>
   <p class="lede" style="margin-top:14px">${b('伽利略的球總是爬回出發的高度，好像有什麼東西被保存下來。但現實中東西會停下來。這一課要找出：停下來的運動跑去哪裡了。','Galileo\'s ball always climbed back to its starting height, as if something were being saved. Yet real things stop. In this lesson you track down where the motion goes when they stop.')}</p>
  </div>
@@ -76,7 +76,7 @@ ${P.adv([["從 F = ma 推出動能 ½mv²", "Deriving kinetic energy ½mv² from
   </div></div>
  </div>
 </div></section>
-${P.nextBand(6,'引力、運動、能量都有了。能不能用它們設計一顆真正能用的衛星？','We have gravity, motion, and energy. Can we use them to design a satellite that actually works?','最後一個節點不需要新的物理，只需要把前面七個節點組合起來。','The last node needs no new physics, only the seven nodes before it put together.')}
+${P.nextBand('energy','引力、運動、能量都有了。能不能用它們設計一顆真正能用的衛星？','We have gravity, motion, and energy. Can we use them to design a satellite that actually works?','最後一個節點不需要新的物理，只需要把前面八個節點組合起來。','The last node needs no new physics, only the eight nodes before it put together.')}
 ${P.std('表現預期 HS-PS3-1（建立計算模型，在已知其他部分能量與能量流動時，計算系統中某一部分的能量變化）、HS-PS3-2（在宏觀尺度上，能量可以用動能和位能來解釋）。科學實踐：SEP 2 建立與使用模型、SEP 5 數學與計算思維。跨科概念：能量與物質、系統與系統模型。','Performance expectations HS-PS3-1 (create a computational model to calculate the change in the energy of one component of a system when the change in energy of the other components and energy flows are known), HS-PS3-2 (energy at the macroscopic scale can be accounted for as kinetic and potential energy). Practices: SEP 2 Developing and Using Models, SEP 5 Mathematical and Computational Thinking. Crosscutting concepts: Energy and Matter, Systems and System Models.')}
 `,init(){
 const {t,tp,css,fit,$}=P,G=9.8,M=100,XM=3,K=1/3;
