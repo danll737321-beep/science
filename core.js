@@ -91,6 +91,10 @@ P.nextBand=(id,zq,eq,zp,ep)=>{const n0=P.node(id),ln=P.lineNodes(n0.l),n=ln[ln.i
 P.adv=items=>`<section class="band adv"><div class="wrap"><details><summary><span class="chip">${P.b('進階','Advanced')}</span> <b>${P.b('代數推導：給想知道「為什麼」的人','Algebraic derivations: for anyone who wants the why')}</b></summary>
  ${items.map(it=>`<div class="advi"><h3>${P.b(it[0],it[1])}</h3>${it[2].map(x=>typeof x==='string'?`<div class="eq">${x.slice(1)}</div>`:`<p>${P.b(x[0],x[1])}</p>`).join('')}</div>`).join('')}</details></div></section>`;
 P.std=(z,e)=>`<footer class="band"><div class="wrap std"><p style="margin:0"><b>${P.b('加州 NGSS 對應','California NGSS alignment')}</b><br>${P.b(z,e)}</p></div></footer>`;
+
+P.bars=(id,rows)=>{P.$(id).innerHTML=rows.map(r=>`<div class="br"><span>${r[0]}</span><div class="tr"><div class="fl" style="width:${Math.max(0,Math.min(100,r[1]/r[2]*100))}%;background:${r[4]||'var(--mo)'}"></div></div><span class="v">${r[3]}</span></div>`).join('')};
+P.anim=(cid,fn)=>P.run(dt=>{const c=P.$(cid);if(!c||!c.isConnected)return false;if(c.closest('main.lesson')?.hidden)return;return fn(dt)});
+P.cv=(id,fn)=>{const c=P.$(id);const d=()=>{const[x,W,H]=P.fit(c);if(W<10||H<60)return;x.clearRect(0,0,W,H);fn(x,W,H)};P.watch(c,d);return d};
 /* lesson builder: data -> standard lesson html */
 P.ps=a=>(a||[]).map(p=>typeof p==='string'?p:`<p>${P.b(p[0],p[1])}</p>`).join('');
 P.build=(id,d)=>{const b=P.b,n=P.node(id),L=P.lines.find(l=>l.id===n.l),i=P.lineNodes(n.l).indexOf(n)+1;
