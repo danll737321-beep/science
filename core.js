@@ -46,74 +46,39 @@ document.addEventListener('click',e=>{
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.q input')){const k=e.target.id.slice(1);document.querySelector(`[data-q="${k}"]`)?.click()}});
 
 /* ---------- nodes + home ---------- */
-P.lines=[{id:'mech',z:'力學',e:'Mechanics',c:'#b8532a'},{id:'thermo',z:'熱學',e:'Heat',c:'#c2410c'},{id:'em',z:'電與磁',e:'Electricity & Magnetism',c:'#2160d8'},{id:'waves',z:'波與光',e:'Waves & Light',c:'#0f8a8a'},{id:'modern',z:'近代物理',e:'Modern Physics',c:'#7b4b6a'}];
-const N=(id,l,yr,z,e,yz,ye,qz,qe)=>({id,l,yr,z,e,yz,ye,q:[qz,qe]});
-P.nodes=[
- N('aristotle','mech',-350,'亞里斯多德','Aristotle','約前 350','c. 350 BCE','東西為什麼會動、為什麼會掉？','Why do things move, and why do they fall?'),
- N('galileo','mech',1604,'伽利略的斜坡','Galileo\'s ramp','1604–1638','1604–1638','掉落真的跟重量有關嗎？','Does falling really depend on weight?'),
- N('kepler','mech',1609,'克卜勒的軌道','Kepler\'s orbits','1609–1619','1609–1619','行星的軌道是什麼形狀？','What shape are the planets\' orbits?'),
- N('cannon','mech',1687,'牛頓的砲彈','Newton\'s cannon','1687','1687','丟出去的石頭跟月亮有什麼關係？','What does a thrown stone have to do with the Moon?'),
- N('gravity','mech',1687,'萬有引力','Universal gravity','1687','1687','離地球越遠，引力怎麼變？','How does gravity change with distance?'),
- N('fma','mech',1687,'F = ma','F = ma','1687','1687','力、質量和加速度是什麼關係？','How are force, mass, and acceleration related?'),
- N('momentum','mech',1668,'動量守恆','Momentum','1668–1687','1668–1687','碰撞的時候，什麼東西前後不變？','In a collision, what stays the same?'),
- N('energy','mech',1845,'能量守恆','Conservation of energy','1840 年代','1840s','東西停下來時，它的運動跑去哪裡了？','When something stops, where did its motion go?'),
- N('satellite','mech',1957,'設計一顆衛星','Design a satellite','1957–今天','1957–today','要多快、多高才能一直繞著地球轉？','How fast and how high to keep circling Earth?'),
- N('black','thermo',1761,'溫度和熱','Temperature vs. heat','1761','1761','溫度和熱是同一件事嗎？','Are temperature and heat the same thing?'),
- N('carnot','thermo',1824,'熱機的極限','The limit of heat engines','1824','1824','蒸汽機的效率可以到 100% 嗎？','Can a steam engine reach 100% efficiency?'),
- N('clausius','thermo',1850,'熵','Entropy','1850–1865','1850–1865','熱為什麼只會從熱流到冷？','Why does heat only flow from hot to cold?'),
- N('kinetic','thermo',1860,'分子運動論','Kinetic theory','1857–1877','1857–1877','溫度到底是什麼在動？','What is actually moving when something is hot?'),
- N('gilbert','em',1600,'地球是一塊磁鐵','Earth is a magnet','1600','1600','指南針為什麼會指北？','Why does a compass point north?'),
- N('franklin','em',1752,'電荷','Electric charge','1745–1752','1745–1752','電是什麼？摩擦起電和閃電是同一件事嗎？','What is electricity? Are static sparks and lightning the same thing?'),
- N('coulomb','em',1785,'庫侖定律','Coulomb\'s law','1785','1785','電力有多強？距離變遠會怎樣？','How strong is the electric force, and how does it change with distance?'),
- N('volta','em',1800,'電池與電流','Batteries and current','1800–1827','1800–1827','能不能讓電一直流？','Can electricity be made to flow continuously?'),
- N('oersted','em',1820,'電流生磁','Current makes magnetism','1820','1820','電和磁之間有關係嗎？','Are electricity and magnetism connected?'),
- N('faraday','em',1831,'電磁感應','Electromagnetic induction','1831','1831','既然電能生磁，磁能不能生電？','If current makes magnetism, can magnetism make current?'),
- N('maxwell','em',1865,'電磁波','Electromagnetic waves','1865','1865','光到底是什麼？','What is light, really?'),
- N('huygens','waves',1678,'光是粒子還是波？','Particle or wave?','1678–1704','1678–1704','光是一顆一顆的粒子，還是一種波？','Is light made of particles or is it a wave?'),
- N('young','waves',1801,'雙狹縫','The double slit','1801','1801','怎麼證明光是波？','How can you prove light is a wave?'),
- N('doppler','waves',1842,'都卜勒效應','The Doppler effect','1842','1842','救護車經過時，聲音為什麼會變？','Why does a siren\'s pitch change as it passes?'),
- N('hertz','waves',1887,'看不見的光','Invisible light','1887','1887','電磁波真的存在嗎？','Do electromagnetic waves really exist?'),
- N('michelson','modern',1887,'找不到的以太','The missing ether','1887','1887','光在什麼東西裡傳播？','What does light travel through?'),
- N('relativity','modern',1905,'相對論','Relativity','1905','1905','如果光速對每個人都一樣，會發生什麼事？','If light\'s speed is the same for everyone, what follows?'),
- N('photon','modern',1905,'光子','The photon','1905','1905','為什麼紅光再亮也打不出電子？','Why can\'t even bright red light knock out electrons?'),
- N('rutherford','modern',1911,'原子核','The nucleus','1911','1911','原子裡面長什麼樣子？','What does the inside of an atom look like?'),
- N('bohr','modern',1913,'波耳的原子','Bohr\'s atom','1913','1913','為什麼每種元素只發出特定顏色的光？','Why does each element glow only in certain colors?'),
- N('hubble','modern',1929,'膨脹的宇宙','The expanding universe','1929','1929','宇宙是靜止的嗎？','Is the universe standing still?'),
- N('fission','modern',1938,'核分裂','Nuclear fission','1938','1938','原子核裡藏了多少能量？','How much energy is hidden in a nucleus?')];
-P.nodes.sort((a,b)=>{const la=P.lines.findIndex(l=>l.id===a.l),lb=P.lines.findIndex(l=>l.id===b.l);return la-lb||(a.id==='momentum'?1687.5:a.yr)-(b.id==='momentum'?1687.5:b.yr)});
+P.lines=[];P.nodes=[];P.subjects=P.subjects||[];
+P.addSubject=(sid,d)=>{d.lines.forEach(l=>l.s=sid);P.lines.push(...d.lines);P.nodes.push(...d.nodes);
+ const li=id=>P.lines.findIndex(l=>l.id===id);P.nodes.sort((a,b)=>li(a.l)-li(b.l)||(a.ord??a.yr)-(b.ord??b.yr))};
 P.lineNodes=l=>P.nodes.filter(n=>n.l===l);
 P.node=id=>P.nodes.find(n=>n.id===id);
-const eras=[
- {z:'古希臘',e:'Ancient Greece',r:[-500,-146],y:['前 500','前 146'],ye:['500 BCE','146 BCE'],c:'#8a6a3a',
-  w2:[['約前 335','c. 335 BCE','亞里斯多德在雅典開設學校「呂克昂」','Aristotle opens his school, the Lyceum, in Athens'],['前 323','323 BCE','亞歷山大大帝去世，希臘文化傳遍地中海','Alexander the Great dies; Greek culture has spread across the Mediterranean']]},
- {z:'中世紀',e:'Middle Ages',r:[500,1400],y:['500','1400'],ye:['500','1400'],c:'#5b6475',
-  nt:['亞里斯多德的物理在大學裡被當成標準答案，教了將近兩千年，幾乎沒有人去量。','Aristotle\'s physics was taught in universities as the answer for nearly two thousand years. Almost nobody measured it.'],
-  w2:[['1088','1088','歐洲第一所大學在義大利波隆那成立','Europe\'s first university is founded in Bologna, Italy']]},
- {z:'文藝復興',e:'Renaissance',r:[1400,1600],y:['1400','1600'],ye:['1400','1600'],c:'#2a7f9e',
-  nt:['哥白尼在 1543 年提出地球繞太陽轉，天文學開始動搖。','In 1543 Copernicus proposed that Earth orbits the Sun, and astronomy started to shift.'],
-  w2:[['約 1440','c. 1440','古騰堡印刷術，書和想法傳得更快','Gutenberg\'s printing press: books and ideas spread faster'],['1492','1492','哥倫布橫越大西洋','Columbus crosses the Atlantic']]},
- {z:'科學革命',e:'Scientific Revolution',r:[1600,1700],y:['1600','1700'],ye:['1600','1700'],c:'#b8532a',
-  w2:[['1607','1607','英國在北美建立詹姆斯鎮殖民地','England founds the Jamestown colony in North America'],['1620','1620','五月花號抵達麻州','The Mayflower arrives in Massachusetts'],['1665','1665','倫敦大瘟疫，劍橋大學關閉，牛頓回老家自己研究','The Great Plague closes Cambridge; Newton goes home and works on his own',1]]},
- {z:'啟蒙時代',e:'Enlightenment',r:[1700,1780],y:['1700','1780'],ye:['1700','1780'],c:'#9a6b1f',
-  w2:[['1751','1751','法國《百科全書》開始出版','The French Encyclopédie begins publication'],['1769','1769','瓦特改良蒸汽機，熱可以變成運動','Watt improves the steam engine: heat can become motion',1],['1776','1776','美國《獨立宣言》','The U.S. Declaration of Independence']]},
- {z:'工業革命',e:'Industrial Revolution',r:[1780,1900],y:['1780','1900'],ye:['1780','1900'],c:'#7b4b6a',
-  w2:[['1789','1789','法國大革命','The French Revolution'],['1825','1825','英國第一條公共蒸汽鐵路通車','Britain\'s first public steam railway opens',1],['1848','1848','加州發現金礦，淘金熱開始','Gold is found in California; the Gold Rush begins'],['1861–1865','1861–1865','美國南北戰爭','The U.S. Civil War'],['1876','1876','貝爾取得電話專利','Bell patents the telephone',1],['1879','1879','愛迪生做出實用的電燈泡','Edison builds a practical light bulb',1]]},
- {z:'二十世紀前半',e:'Early 20th century',r:[1900,1950],y:['1900','1950'],ye:['1900','1950'],c:'#3d4f7a',
-  w2:[['1903','1903','萊特兄弟第一次動力飛行','The Wright brothers make the first powered flight'],['1914–1918','1914–1918','第一次世界大戰','World War I'],['1939–1945','1939–1945','第二次世界大戰；1945 年原子彈在日本投下','World War II; atomic bombs are dropped on Japan in 1945',1]]},
- {z:'太空時代',e:'Space Age',r:[1950,2100],y:['1950','今天'],ye:['1950','today'],c:'#1f4a8a',
-  w2:[['1957','1957','蘇聯發射第一顆人造衛星史普尼克','The Soviet Union launches Sputnik, the first artificial satellite',1],['1969','1969','阿波羅 11 號登陸月球','Apollo 11 lands on the Moon'],['1990','1990','哈伯太空望遠鏡發射','The Hubble Space Telescope is launched',1]]}];
 const t=(...a)=>P.t(...a),ty=(...a)=>P.ty(...a);
 const lnum=n=>P.lineNodes(n.l).indexOf(n)+1;
-const card=n=>{const on=!!P.lessons[n.id],L=P.lines.find(l=>l.id===n.l),tag=on?'a':'div';
- return `<${tag} class="pc ${on?'':'off'}" style="--ec:${L.c}" ${on?`href="#${n.id}"`:''}><span class="n">${lnum(n)}</span><span class="y">${ty(n.yz,n.ye)}</span><b>${t(n.z,n.e)}</b><q>${t(...n.q)}</q><span class="go">${on?t('進入 →','Open →'):t('即將推出','Coming soon')}</span></${tag}>`};
-const drawHome=()=>{const cols=eras.length;let h=`<div class="gl" style="grid-template-columns:var(--labw) repeat(${cols},max-content)">`;
- h+=`<div class="lh sticky"></div>`+eras.map(e=>`<div class="eh" style="--ec:${e.c}"><b>${t(e.z,e.e)}</b><small>${ty(e.y[0],e.ye[0])} – ${ty(e.y[1],e.ye[1])}</small></div>`).join('');
- P.lines.forEach(L=>{h+=`<div class="lh sticky" style="--ec:${L.c}"><b>${t(L.z,L.e)}</b></div>`;
-  eras.forEach(e=>{const ns=P.lineNodes(L.id).filter(n=>n.yr>=e.r[0]&&n.yr<e.r[1]);
-   h+=`<div class="cell">${ns.map(card).join('')}${(!ns.length&&e.nt&&L.id==='mech')?`<div class="note">${t(...e.nt)}</div>`:''}</div>`})});
- h+=`<div class="lh sticky"></div>`+eras.map(e=>`<div class="ax" style="--ec:${e.c}"><span>${ty(e.y[0],e.ye[0])}</span><span>${ty(e.y[1],e.ye[1])}</span></div>`).join('');
- h+=`<div class="lh sticky"><b>${t('同時期的世界','Meanwhile in the world')}</b></div>`+eras.map(e=>`<div class="cell wcell" style="--ec:${e.c}">${e.w2.map(w=>`<div class="wc ${w[4]?'link':''}"><b>${ty(w[0],w[1])}</b>${t(w[2],w[3])}</div>`).join('')}</div>`).join('');
- P.$('track').innerHTML=h+'</div>'};
+const st={sub:'physics',view:'topic',topic:'all'};try{Object.assign(st,JSON.parse(localStorage.getItem('tl-state')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('tl-state',JSON.stringify(st))}catch(e){}};
+const LN=id=>P.lines.find(l=>l.id===id);
+const card=(n,tag)=>{const on=!!P.lessons[n.id],L=LN(n.l),T=on?'a':'div';
+ return `<${T} class="vc ${on?'':'off'}" style="--ec:${L.c}" ${on?`href="#${n.id}"`:''}>${tag?`<span class="vtag">${t(L.z,L.e)} ${lnum(n)}</span>`:`<span class="vnum">${lnum(n)}</span>`}<b>${t(n.z,n.e)}</b><span class="vq">${t(...n.q)}</span><span class="vgo">${on?t('進入 →','Open →'):t('即將推出','Coming soon')}</span></${T}>`};
+const row=(yr,body,cls='',c)=>`<div class="vr ${cls}" ${c?`style="--ec:${c}"`:''}><div class="vy">${yr}</div><div class="vd"><i></i></div><div class="vb">${body}</div></div>`;
+const drawHome=()=>{const S=P.subjects.find(s=>s.id===st.sub)||P.subjects[0];
+ P.$('subj').innerHTML=P.subjects.map(s=>`<button aria-pressed="${s.id===S.id}" data-s="${s.id}" style="--ec:${s.c}">${t(s.z,s.e)}${s.ready?'':`<small>${t('即將推出','soon')}</small>`}</button>`).join('');
+ P.$('sh1').innerHTML=t(...S.title);P.$('slede').innerHTML=t(...S.lede);
+ const lines=P.lines.filter(l=>l.s===S.id);
+ if(!S.ready){P.$('ctl').hidden=true;P.$('vt').innerHTML=`<div class="soon"><p>${t(...S.plan)}</p></div>`;return}
+ P.$('ctl').hidden=false;if(st.topic!=='all'&&!lines.find(l=>l.id===st.topic))st.topic='all';
+ P.$('vsw').innerHTML=[['topic','依主題','By topic'],['era','依年代','By era']].map(v=>`<button aria-pressed="${st.view===v[0]}" data-v="${v[0]}">${t(v[1],v[2])}</button>`).join('');
+ P.$('tchips').innerHTML=[{id:'all',z:'全部',e:'All',c:'var(--ink)'},...lines].map(l=>`<button aria-pressed="${st.topic===l.id}" data-t="${l.id}" style="--ec:${l.c}">${t(l.z,l.e)}</button>`).join('');
+ const sel=st.topic==='all'?lines:lines.filter(l=>l.id===st.topic);let h='';
+ if(st.view==='topic'){sel.forEach(L=>{const ns=P.lineNodes(L.id);
+  h+=`<section class="vs"><header class="vh" style="--ec:${L.c}"><h2>${t(L.z,L.e)}</h2><p>${t(...L.d)}</p><small>${t(`${ns.length} 個節點 · ${ns[0].yz} → ${ns[ns.length-1].yz}`,`${ns.length} nodes · ${ns[0].ye} → ${ns[ns.length-1].ye}`)}</small></header><div class="vl">`+ns.map(n=>row(ty(n.yz,n.ye),card(n),'',L.c)).join('')+`</div></section>`})}
+ else{const ids=new Set(sel.map(l=>l.id));P.eras.forEach(E=>{const ns=P.nodes.filter(n=>ids.has(n.l)&&n.yr>=E.r[0]&&n.yr<E.r[1]).map(n=>({y:n.yr,h:row(ty(n.yz,n.ye),card(n,1),'',LN(n.l).c)}));
+  const ws=E.w2.map(w=>({y:(+String(w[1]).match(/\d+/)[0])*(String(w[1]).includes('BCE')?-1:1)+.1,h:row(ty(w[0],w[1]),`<div class="vw ${w[4]?'link':''}">${t(w[2],w[3])}</div>`,'w')}));
+  if(!ns.length&&!E.nt)return;
+  const items=[...ns,...ws].sort((a,b)=>a.y-b.y).map(x=>x.h).join('');
+  h+=`<section class="vs"><header class="vh era" style="--ec:${E.c}"><h2>${t(E.z,E.e)}</h2><small>${ty(E.y[0],E.ye[0])} – ${ty(E.y[1],E.ye[1])}</small>${E.nt?`<p>${t(...E.nt)}</p>`:''}</header><div class="vl">${items}</div></section>`})}
+ P.$('vt').innerHTML=h};
+document.addEventListener('click',e=>{const s=e.target.closest('#subj button');if(s){st.sub=s.dataset.s;st.topic='all';save();drawHome();return}
+ const v=e.target.closest('#vsw button');if(v){st.view=v.dataset.v;save();drawHome();return}
+ const tp=e.target.closest('#tchips button');if(tp){st.topic=tp.dataset.t;save();drawHome();P.$('ctl').scrollIntoView({block:'start'})}});
 const drawRail=()=>{const cur=P.node(P.cur);if(!cur)return;const L=P.lines.find(l=>l.id===cur.l);
  P.$('rail').innerHTML=`<div class="rl" style="--ec:${L.c}"><b>${t(L.z,L.e)}</b></div>`+P.lineNodes(cur.l).map(n=>{const on=!!P.lessons[n.id];return `<${on?'a':'div'} class="node ${n.id===P.cur?'on':''} ${on?'':'off'}" ${on?`href="#${n.id}"`:''}><small>${lnum(n)} · ${ty(n.yz,n.ye)}</small><b>${t(n.z,n.e)}</b></${on?'a':'div'}>`}).join('');
  const on=P.$('rail').querySelector('.on');if(on)on.scrollIntoView({block:'nearest',inline:'center'})};
@@ -156,7 +121,7 @@ const setLang=l=>{P.L=l;R.dataset.lang=l;R.lang=l==='en'?'en':'zh-Hant';
  ['both','zh','en'].forEach(k=>P.$('b'+k).setAttribute('aria-pressed',l===k));
  try{localStorage.setItem('phys-lang2',l)}catch(e){}
  drawHome();drawRail();Object.keys(P.preds).forEach(P.drawPred);Object.keys(P.qres).forEach(P.drawQ);P.cb.forEach(f=>{try{f()}catch(e){console.error(e)}})};
-P.start=()=>{['both','zh','en'].forEach(k=>P.$('b'+k).onclick=()=>setLang(k));
+P.start=()=>{const hh=()=>R.style.setProperty('--hh',document.querySelector('.top').offsetHeight+'px');hh();addEventListener('resize',hh);['both','zh','en'].forEach(k=>P.$('b'+k).onclick=()=>setLang(k));
  let s='both';try{s=localStorage.getItem('phys-lang2')||'both'}catch(e){}
  addEventListener('hashchange',route);setLang(s);route()};
 }

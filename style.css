@@ -202,3 +202,70 @@ div.node.off{opacity:.5}
 .cell .pc q{font-size:13px}
 html[data-lang=both] .cell .pc q .en,.cell .pc .go{display:none}
 html[data-lang=both] .cell .pc b .en{font-size:.8em}
+/* ---- vertical home (v3) ---- */
+.subj{display:flex;gap:4px;overflow-x:auto;padding:10px max(5vw,16px) 0;border-bottom:1px solid var(--line);scrollbar-width:none}
+.subj button{border:0;border-radius:10px 10px 0 0;background:transparent;font:700 16px "Noto Sans TC","Archivo",sans-serif;padding:0 16px;min-height:48px;white-space:nowrap;border-bottom:4px solid transparent;color:var(--mute)}
+.subj button[aria-pressed=true]{color:var(--ink);border-bottom-color:var(--ec);background:var(--panel)}
+.subj button small{display:block;font-size:11px;font-weight:500;color:var(--mute);margin-top:-2px}
+html[data-lang=both] .subj button .en{display:inline;margin-left:6px;font-size:.8em;color:inherit;opacity:.7}
+.hb{padding-block:clamp(22px,3vw,40px) clamp(14px,2vw,22px)}
+.hb h1{max-width:24ch}
+.ctl{position:sticky;top:var(--hh,64px);z-index:4;background:var(--bg);border-block:1px solid var(--line);padding:10px max(5vw,16px)}
+.ctl .wrap{display:flex;flex-direction:column;gap:8px}
+.vsw button{min-height:38px;font-size:14px}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.chips button{flex:0 0 auto;min-height:40px;border-radius:99px;padding:0 14px;font-size:14px;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.chips button::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--ec)}
+.chips button[aria-pressed=true]{background:var(--ec);border-color:var(--ec);color:#fff}
+.chips button[aria-pressed=true]::before{background:#fff}
+html[data-lang=both] .chips button .en,html[data-lang=both] .vsw button .en{display:inline;margin-left:4px;font-size:.82em;color:inherit;opacity:.8}
+.vt{padding:8px max(5vw,16px) 56px}
+.vs{margin-top:22px}
+.vh{background:var(--ec);color:#fff;border-radius:14px;padding:14px 18px;margin-bottom:6px}
+.vh h2{margin:0 0 4px;font-size:22px;color:#fff}
+.vh p{margin:4px 0;font-size:15px;opacity:.95;max-width:none}
+.vh small{font-size:13px;opacity:.9}
+html[data-lang=both] .vh .en{color:#fff;opacity:.85}
+.vl{position:relative}
+.vr{display:grid;grid-template-columns:92px 26px minmax(0,1fr);align-items:stretch}
+.vy{font:700 14px "Archivo","Noto Sans TC";text-align:right;padding-top:16px;color:var(--ink);white-space:normal;line-height:1.3}
+.vd{position:relative}
+.vd::before{content:"";position:absolute;left:12px;top:0;bottom:0;width:3px;background:var(--line)}
+.vd i{position:absolute;left:6px;top:16px;width:15px;height:15px;border-radius:50%;background:var(--ec,var(--mute));box-shadow:0 0 0 3px var(--bg)}
+.vb{padding:6px 0}
+.vc{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;align-items:start;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);color:inherit;text-decoration:none}
+a.vc{border-color:color-mix(in srgb,var(--ec) 55%,var(--line))}
+a.vc:hover{background:var(--panel)}
+a.vc:focus-visible{outline:3px solid var(--mo);outline-offset:2px}
+.vc.off{opacity:.6}
+.vnum{grid-row:1/4;width:30px;height:30px;border-radius:50%;background:var(--ec);color:#fff;display:grid;place-items:center;font:800 14px Archivo}
+.vtag{grid-column:1/-1;justify-self:start;font-size:12px;font-weight:700;color:#fff;background:var(--ec);border-radius:99px;padding:1px 10px;margin-bottom:4px}
+.vtag~b,.vtag~.vq,.vtag~.vgo{grid-column:1/-1}
+.vc b{font-size:17px;line-height:1.3}
+.vq{font-size:14px;color:var(--mute)}
+.vgo{font-size:13px;font-weight:700;color:var(--ec)}
+.vc.off .vgo{color:var(--mute)}
+html[data-lang=both] .vc .vq .en,html[data-lang=both] .vtag .en,html[data-lang=both] .vgo .en{display:none}
+html[data-lang=both] .vc b .en{font-size:.82em}
+.vr.w .vy{font-weight:600;color:var(--mute);font-size:13px}
+.vr.w .vd i{width:9px;height:9px;left:9px;top:19px;background:var(--mute)}
+.vw{font-size:14px;color:var(--mute);background:var(--panel);border-radius:10px;padding:8px 12px}
+.vw.link{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+html[data-lang=both] .vw .en{font-size:.85em}
+.soon{background:var(--panel);border-radius:14px;padding:24px;margin-top:22px;font-size:17px}
+@media(max-width:600px){.vr{grid-template-columns:58px 22px minmax(0,1fr)}.vy{font-size:12px}.vd::before{left:10px}.vd i{left:4px}.vr.w .vd i{left:7px}.vc{padding:10px 12px}.vc b{font-size:16px}}
+.subj button{flex:0 0 auto;line-height:1.2}
+.subj button small{display:block}
+html[data-lang=both] .subj button>.en{display:none}
+@media(max-width:600px){
+ .top{padding:8px 12px;gap:8px}
+ .brand{font-size:14px;line-height:1.25}
+ .brand .en,.brand .zh{display:none!important}
+ .brand::after{content:"科學時間軸"}
+ html[data-lang=en] .brand::after{content:"Science Timeline"}
+ .lang button{min-width:0;padding:0 9px;font-size:13px;min-height:40px}
+ #back{padding:0 10px;min-height:40px;font-size:13px}
+ html[data-lang=both] #back .en{display:none}
+ .topr{gap:6px}
+ .hb .lede{font-size:16px}
+}

@@ -1,0 +1,20 @@
+/* shared eras and world events for every subject */
+P.eras=[
+ {z:'古希臘',e:'Ancient Greece',r:[-500,-146],y:['前 500','前 146'],ye:['500 BCE','146 BCE'],c:'#8a6a3a',
+  w2:[['約前 335','c. 335 BCE','亞里斯多德在雅典開設學校「呂克昂」','Aristotle opens his school, the Lyceum, in Athens'],['前 323','323 BCE','亞歷山大大帝去世，希臘文化傳遍地中海','Alexander the Great dies; Greek culture has spread across the Mediterranean']]},
+ {z:'中世紀',e:'Middle Ages',r:[500,1400],y:['500','1400'],ye:['500','1400'],c:'#5b6475',
+  nt:['亞里斯多德的物理在大學裡被當成標準答案，教了將近兩千年，幾乎沒有人去量。','Aristotle\'s physics was taught in universities as the answer for nearly two thousand years. Almost nobody measured it.'],
+  w2:[['1088','1088','歐洲第一所大學在義大利波隆那成立','Europe\'s first university is founded in Bologna, Italy']]},
+ {z:'文藝復興',e:'Renaissance',r:[1400,1600],y:['1400','1600'],ye:['1400','1600'],c:'#2a7f9e',
+  nt:['哥白尼在 1543 年提出地球繞太陽轉，天文學開始動搖。','In 1543 Copernicus proposed that Earth orbits the Sun, and astronomy started to shift.'],
+  w2:[['約 1440','c. 1440','古騰堡印刷術，書和想法傳得更快','Gutenberg\'s printing press: books and ideas spread faster'],['1492','1492','哥倫布橫越大西洋','Columbus crosses the Atlantic']]},
+ {z:'科學革命',e:'Scientific Revolution',r:[1600,1700],y:['1600','1700'],ye:['1600','1700'],c:'#b8532a',
+  w2:[['1607','1607','英國在北美建立詹姆斯鎮殖民地','England founds the Jamestown colony in North America'],['1620','1620','五月花號抵達麻州','The Mayflower arrives in Massachusetts'],['1665','1665','倫敦大瘟疫，劍橋大學關閉，牛頓回老家自己研究','The Great Plague closes Cambridge; Newton goes home and works on his own',1]]},
+ {z:'啟蒙時代',e:'Enlightenment',r:[1700,1780],y:['1700','1780'],ye:['1700','1780'],c:'#9a6b1f',
+  w2:[['1751','1751','法國《百科全書》開始出版','The French Encyclopédie begins publication'],['1769','1769','瓦特改良蒸汽機，熱可以變成運動','Watt improves the steam engine: heat can become motion',1],['1776','1776','美國《獨立宣言》','The U.S. Declaration of Independence']]},
+ {z:'工業革命',e:'Industrial Revolution',r:[1780,1900],y:['1780','1900'],ye:['1780','1900'],c:'#7b4b6a',
+  w2:[['1789','1789','法國大革命','The French Revolution'],['1825','1825','英國第一條公共蒸汽鐵路通車','Britain\'s first public steam railway opens',1],['1848','1848','加州發現金礦，淘金熱開始','Gold is found in California; the Gold Rush begins'],['1861–1865','1861–1865','美國南北戰爭','The U.S. Civil War'],['1876','1876','貝爾取得電話專利','Bell patents the telephone',1],['1879','1879','愛迪生做出實用的電燈泡','Edison builds a practical light bulb',1]]},
+ {z:'二十世紀前半',e:'Early 20th century',r:[1900,1950],y:['1900','1950'],ye:['1900','1950'],c:'#3d4f7a',
+  w2:[['1903','1903','萊特兄弟第一次動力飛行','The Wright brothers make the first powered flight'],['1914–1918','1914–1918','第一次世界大戰','World War I'],['1939–1945','1939–1945','第二次世界大戰；1945 年原子彈在日本投下','World War II; atomic bombs are dropped on Japan in 1945',1]]},
+ {z:'太空時代',e:'Space Age',r:[1950,2100],y:['1950','今天'],ye:['1950','today'],c:'#1f4a8a',
+  w2:[['1957','1957','蘇聯發射第一顆人造衛星史普尼克','The Soviet Union launches Sputnik, the first artificial satellite',1],['1969','1969','阿波羅 11 號登陸月球','Apollo 11 lands on the Moon'],['1990','1990','哈伯太空望遠鏡發射','The Hubble Space Telescope is launched',1]]}];

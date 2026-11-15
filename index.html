@@ -3,68 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>物理時間軸 Physics Timeline</title>
+<title>科學時間軸 Science Timeline</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top">
-  <a class="brand" href="#home"><span class="zh">物理時間軸：理論是怎麼被逼出來的</span><span class="en">Physics Timeline: how each idea was forced into being</span></a>
+  <a class="brand" href="#home"><span class="zh">科學時間軸：理論是怎麼被逼出來的</span><span class="en">Science Timeline: how each idea was forced into being</span></a>
   <div class="topr"><a class="btn" id="back" href="#home"><span class="zh">← 時間軸</span><span class="en">← Timeline</span></a><div class="lang" role="group" aria-label="Language">
     <button id="bboth" aria-pressed="false">中英對照</button><button id="bzh" aria-pressed="true">中文</button><button id="ben" aria-pressed="false">English</button>
   </div></div>
 </header>
 <div id="home">
-<section class="band"><div class="wrap hh">
-  <div>
-    <span class="chip"><span class="zh">高中物理 · 加州 NGSS</span><span class="en">High school physics · California NGSS</span></span>
-    <h1><span class="zh">物理是怎麼一步一步被發現的</span><span class="en">How physics was figured out, one step at a time</span></h1>
-    <p class="lede" style="margin:14px 0 0"><span class="zh">每一個理論都是為了回答上一個留下的問題。五條時間軸平行往右走：力學、熱學、電與磁、波與光、近代物理。往下看是同一個年代的不同領域，往右看是同一個領域的問題接力。</span><span class="en">Every theory was an answer to a question the previous one left behind. Five timelines run side by side: mechanics, heat, electricity &amp; magnetism, waves &amp; light, and modern physics. Read down to compare fields in the same era; read across to follow one field's relay of questions.</span></p>
-  </div>
-  <div class="legend">
-    <span><i style="background:var(--cu)"></i><span class="zh">物理節點（可以進入）</span><span class="en">Physics node (open)</span></span>
-    <span><i style="background:var(--mute)"></i><span class="zh">即將推出</span><span class="en">Coming soon</span></span>
-    <span><i style="background:var(--panel);box-shadow:inset 0 0 0 1px var(--line)"></i><span class="zh">同時期的世界大事</span><span class="en">Meanwhile in the world</span></span>
-  </div>
-</div></section>
-<p class="swipe"><span class="zh">← 左右滑動看完整時間軸 →</span><span class="en">← Scroll sideways for the full timeline →</span></p>
-<div class="tl"><div class="track" id="track"></div></div>
+<nav class="subj" id="subj" aria-label="Subjects"></nav>
+<section class="band hb"><div class="wrap"><h1 id="sh1"></h1><p class="lede" id="slede" style="margin:12px 0 0"></p></div></section>
+<div class="ctl" id="ctl"><div class="wrap"><div class="seg vsw" id="vsw"></div><div class="chips" id="tchips"></div></div></div>
+<div class="wrap vt" id="vt"></div>
 </div>
 <nav class="rail" id="rail" aria-label="Timeline" hidden></nav>
 <div id="lessons"></div>
 <script src="core.js"></script>
-<script src="lessons/aristotle.js"></script>
-<script src="lessons/galileo.js"></script>
-<script src="lessons/kepler.js"></script>
-<script src="lessons/cannon.js"></script>
-<script src="lessons/gravity.js"></script>
-<script src="lessons/fma.js"></script>
-<script src="lessons/momentum.js"></script>
-<script src="lessons/energy.js"></script>
-<script src="lessons/satellite.js"></script>
-<script src="lessons/black.js"></script>
-<script src="lessons/carnot.js"></script>
-<script src="lessons/clausius.js"></script>
-<script src="lessons/kinetic.js"></script>
-<script src="lessons/gilbert.js"></script>
-<script src="lessons/franklin.js"></script>
-<script src="lessons/coulomb.js"></script>
-<script src="lessons/volta.js"></script>
-<script src="lessons/oersted.js"></script>
-<script src="lessons/faraday.js"></script>
-<script src="lessons/maxwell.js"></script>
-<script src="lessons/huygens.js"></script>
-<script src="lessons/young.js"></script>
-<script src="lessons/doppler.js"></script>
-<script src="lessons/hertz.js"></script>
-<script src="lessons/michelson.js"></script>
-<script src="lessons/relativity.js"></script>
-<script src="lessons/photon.js"></script>
-<script src="lessons/rutherford.js"></script>
-<script src="lessons/bohr.js"></script>
-<script src="lessons/hubble.js"></script>
-<script src="lessons/fission.js"></script>
+<script src="data/world.js"></script>
+<script src="data/subjects.js"></script>
+<script src="subjects/physics.js"></script>
+<script src="lessons/physics/aristotle.js"></script>
+<script src="lessons/physics/galileo.js"></script>
+<script src="lessons/physics/kepler.js"></script>
+<script src="lessons/physics/cannon.js"></script>
+<script src="lessons/physics/gravity.js"></script>
+<script src="lessons/physics/fma.js"></script>
+<script src="lessons/physics/momentum.js"></script>
+<script src="lessons/physics/energy.js"></script>
+<script src="lessons/physics/satellite.js"></script>
+<script src="lessons/physics/black.js"></script>
+<script src="lessons/physics/carnot.js"></script>
+<script src="lessons/physics/clausius.js"></script>
+<script src="lessons/physics/kinetic.js"></script>
+<script src="lessons/physics/gilbert.js"></script>
+<script src="lessons/physics/franklin.js"></script>
+<script src="lessons/physics/coulomb.js"></script>
+<script src="lessons/physics/volta.js"></script>
+<script src="lessons/physics/oersted.js"></script>
+<script src="lessons/physics/faraday.js"></script>
+<script src="lessons/physics/maxwell.js"></script>
+<script src="lessons/physics/huygens.js"></script>
+<script src="lessons/physics/young.js"></script>
+<script src="lessons/physics/doppler.js"></script>
+<script src="lessons/physics/hertz.js"></script>
+<script src="lessons/physics/michelson.js"></script>
+<script src="lessons/physics/relativity.js"></script>
+<script src="lessons/physics/photon.js"></script>
+<script src="lessons/physics/rutherford.js"></script>
+<script src="lessons/physics/bohr.js"></script>
+<script src="lessons/physics/hubble.js"></script>
+<script src="lessons/physics/fission.js"></script>
 <script>P.start()</script>
 </body>
 </html>
