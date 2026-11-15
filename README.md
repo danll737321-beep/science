@@ -4,12 +4,14 @@ High school physics as a story of questions: five parallel timelines (mechanics,
 
 Biology: six parallel timelines (cells, energy & photosynthesis, the body, disease & microbes, genetics, evolution & ecology), 37 nodes from Hooke to CRISPR and biodiversity, aligned to HS-LS1–LS4 and HS-ETS1.
 
+Chemistry: six parallel timelines (matter & atoms, the periodic table, bonds & molecular shape, reactions & energy, solutions/acids/bases, organic chemistry/materials/society), 36 nodes from Democritus to green chemistry, aligned to HS-PS1-1 through PS1-8, plus HS-ESS2/ESS3 and HS-ETS1.
+
 Plain HTML/CSS/JS, no build step. Open `index.html` or serve with GitHub Pages (Settings → Pages → Deploy from branch → `main` / root).
 
 - `index.html` – shell: subject tabs, topic/era views
 - `core.js` – language toggle, routing (`#aristotle`, `#faraday`, …), vertical timeline home, lesson builder, prediction/quiz engine
 - `data/world.js` – shared eras and world events (all subjects)
-- `data/subjects.js` – subject registry (physics and biology live; chemistry, earth & space planned)
+- `data/subjects.js` – subject registry (physics, chemistry, and biology live; earth & space planned)
 - `subjects/<subject>.js` – topics (lines) and nodes for one subject
 - `lessons/<subject>/*.js` – one file per node (content + simulations)
 - `style.css`

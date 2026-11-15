@@ -1,0 +1,48 @@
+{
+const N=(id,l,yr,z,e,yz,ye,qz,qe)=>({id,l,yr,z,e,yz,ye,q:[qz,qe]});
+const lines=[
+ {id:'matter',z:'物質與原子',e:'Matter & Atoms',c:'#a23b72',d:['物質由什麼組成？從四元素到原子、分子和莫耳。','What is matter made of? From four elements to atoms, molecules, and the mole.']},
+ {id:'ptable',z:'週期表',e:'The Periodic Table',c:'#2160d8',d:['元素有多少種？它們之間有規律嗎？','How many elements are there, and do they follow a pattern?']},
+ {id:'bonds',z:'化學鍵與分子形狀',e:'Bonds & Molecular Shape',c:'#0f8a8a',d:['原子怎麼接在一起？分子的形狀怎麼決定物質的性質？','How do atoms join? How does molecular shape set a substance\'s properties?']},
+ {id:'rxn',z:'反應與能量',e:'Reactions & Energy',c:'#c0392b',d:['反應放出多少能量？反應有多快？會進行到哪裡停下來？','How much energy does a reaction release, how fast does it go, and where does it stop?']},
+ {id:'acid',z:'溶液與酸鹼',e:'Solutions, Acids & Bases',c:'#b8860b',d:['東西溶在水裡會怎樣？酸和鹼是什麼？從血液到海洋。','What happens when things dissolve? What are acids and bases? From blood to the oceans.']},
+ {id:'society',z:'有機、材料與社會',e:'Organic Chemistry, Materials & Society',c:'#2f7d32',d:['人類怎麼用化學做出新物質？又怎麼處理它們帶來的問題？','How do people make new substances with chemistry, and deal with the problems they cause?']}];
+const nodes=[
+ N('atomism','matter',-400,'四元素還是原子？','Four elements or atoms?','約前 400','c. 400 BCE','物質能不能無限切下去？','Can matter be divided forever?'),
+ N('boyle','matter',1661,'什麼是元素？','What is an element?','1661','1661','什麼東西才能算是「元素」？','What counts as an element?'),
+ N('mass','matter',1789,'質量守恆','Conservation of mass','1789','1789','東西燒完變輕了，質量消失了嗎？','When something burns and gets lighter, is mass lost?'),
+ N('proust','matter',1799,'定比定律','Definite proportions','1799','1799','同一種化合物的組成永遠一樣嗎？','Is a compound\'s composition always the same?'),
+ N('dalton','matter',1808,'道耳頓的原子','Dalton\'s atoms','1808','1808','元素為什麼總是用整數比結合？','Why do elements combine in whole-number ratios?'),
+ N('avogadro','matter',1811,'分子和莫耳','Molecules and the mole','1811','1811','同體積的氣體，粒子數一樣嗎？','Do equal volumes of gas hold equal numbers of particles?'),
+ N('davy','ptable',1807,'用電拆開化合物','Splitting compounds with electricity','1807','1807','電能不能拆開拆不開的東西？','Can electricity split what nothing else can?'),
+ N('spectra','ptable',1860,'火焰的指紋','Fingerprints in flame','1860','1860','能從顏色認出元素嗎？','Can you identify an element by its color?'),
+ N('mendeleev','ptable',1869,'週期表','The periodic table','1869','1869','元素之間有規律嗎？','Do the elements follow a pattern?'),
+ N('argon','ptable',1894,'惰性氣體','The noble gases','1894','1894','空氣裡多出來的重量是什麼？','What is the extra weight in air?'),
+ N('curie','ptable',1898,'放射性元素','Radioactive elements','1898','1898','有些元素會自己放出能量？','Do some elements give off energy on their own?'),
+ N('moseley','ptable',1913,'原子序','Atomic number','1913','1913','週期表該照什麼排？','What should order the periodic table?'),
+ N('kekule','bonds',1865,'苯環','The benzene ring','1865','1865','6 個碳怎麼接成穩定的分子？','How do six carbons form a stable molecule?'),
+ N('vdw','bonds',1873,'分子之間的吸引力','Forces between molecules','1873','1873','氣體為什麼能變成液體？','Why can gases turn into liquids?'),
+ N('vanthoff','bonds',1874,'立體的碳','Carbon in 3D','1874','1874','分子是平的還是立體的？','Are molecules flat or three-dimensional?'),
+ N('lewis','bonds',1916,'共用電子','Sharing electrons','1916','1916','原子為什麼要共用電子？','Why do atoms share electrons?'),
+ N('pauling','bonds',1932,'電負度','Electronegativity','1932','1932','是離子鍵還是共價鍵？','Is a bond ionic or covalent?'),
+ N('vsepr','bonds',1957,'分子的形狀','The shape of molecules','1957','1957','水分子為什麼是彎的？','Why is a water molecule bent?'),
+ N('hess','rxn',1840,'反應熱','Heat of reaction','1840','1840','反應熱跟走哪條路有關嗎？','Does reaction heat depend on the path taken?'),
+ N('lechatelier','rxn',1884,'化學平衡','Chemical equilibrium','1884','1884','平衡被干擾時會怎樣？','What happens when equilibrium is disturbed?'),
+ N('rate','rxn',1889,'反應速率','Reaction rates','1889','1889','溫度升高，反應為什麼快很多？','Why do reactions speed up so much when warmed?'),
+ N('haber','rxn',1909,'從空氣做出肥料','Fertilizer from air','1909','1909','怎麼把空氣中的氮變成肥料？','How can nitrogen in air become fertilizer?'),
+ N('catalyst','rxn',1975,'觸媒','Catalysts','1975','1975','觸媒不會被用掉，為什麼能加速反應？','How does a catalyst speed reactions without being used up?'),
+ N('battery','rxn',1991,'鋰電池','The lithium battery','1991','1991','化學能怎麼直接變成電？','How does chemical energy become electricity directly?'),
+ N('ions','acid',1884,'離子','Ions','1884','1884','鹽水為什麼會導電？','Why does salt water conduct electricity?'),
+ N('ph','acid',1909,'pH 值','The pH scale','1909','1909','酸有多強要怎麼量？','How do you measure how strong an acid is?'),
+ N('buffer','acid',1916,'緩衝溶液','Buffers','1908–1916','1908–1916','血液的 pH 為什麼幾乎不變？','Why does blood pH barely change?'),
+ N('bronsted','acid',1923,'質子的轉移','Proton transfer','1923','1923','氨沒有 OH⁻，為什麼是鹼？','Why is ammonia a base without OH⁻?'),
+ N('acidrain','acid',1972,'酸雨','Acid rain','1972','1972','湖裡的魚為什麼消失了？','Why did the fish vanish from the lakes?'),
+ N('ocean','acid',2003,'海洋酸化','Ocean acidification','2003','2003','二氧化碳怎麼讓海水變酸？','How does CO₂ make seawater more acidic?'),
+ N('wohler','society',1828,'合成尿素','Synthesizing urea','1828','1828','生物的物質一定要靠生物做嗎？','Must the substances of life be made by living things?'),
+ N('perkin','society',1856,'第一種合成染料','The first synthetic dye','1856','1856','失敗的實驗能做出什麼？','What can come out of a failed experiment?'),
+ N('nylon','society',1935,'尼龍與聚合物','Nylon and polymers','1935','1935','怎麼把小分子接成長鏈？','How do you link small molecules into long chains?'),
+ N('ozone','society',1974,'臭氧層','The ozone layer','1974','1974','噴霧罐怎麼影響天空？','How could spray cans affect the sky?'),
+ N('plastic','society',1997,'塑膠污染','Plastic pollution','1997–今天','1997–today','耐用為什麼反而成了問題？','Why did durability become a problem?'),
+ N('green','society',1998,'綠色化學','Green chemistry','1998','1998','能不能一開始就不產生廢物？','Can a reaction avoid making waste in the first place?')];
+P.addSubject('chemistry',{lines,nodes});
+}

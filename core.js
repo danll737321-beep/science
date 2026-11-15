@@ -72,9 +72,9 @@ const drawHome=()=>{const S=P.subjects.find(s=>s.id===st.sub)||P.subjects[0];
   h+=`<section class="vs"><header class="vh" style="--ec:${L.c}"><h2>${t(L.z,L.e)}</h2><p>${t(...L.d)}</p><small>${t(`${ns.length} 個節點 · ${ns[0].yz} → ${ns[ns.length-1].yz}`,`${ns.length} nodes · ${ns[0].ye} → ${ns[ns.length-1].ye}`)}</small></header><div class="vl">`+ns.map(n=>row(ty(n.yz,n.ye),card(n),'',L.c)).join('')+`</div></section>`})}
  else{const ids=new Set(sel.map(l=>l.id));P.eras.forEach(E=>{const ns=P.nodes.filter(n=>ids.has(n.l)&&n.yr>=E.r[0]&&n.yr<E.r[1]).map(n=>({y:n.yr,h:row(ty(n.yz,n.ye),card(n,1),'',LN(n.l).c)}));
   const ws=E.w2.map(w=>({y:(+String(w[1]).match(/\d+/)[0])*(String(w[1]).includes('BCE')?-1:1)+.1,h:row(ty(w[0],w[1]),`<div class="vw ${w[4]?'link':''}">${t(w[2],w[3])}</div>`,'w')}));
-  if(!ns.length&&!E.nt)return;
+  const nt=E.nt&&!Array.isArray(E.nt)?E.nt[S.id]:E.nt;if(!ns.length&&!nt)return;
   const items=[...ns,...ws].sort((a,b)=>a.y-b.y).map(x=>x.h).join('');
-  h+=`<section class="vs"><header class="vh era" style="--ec:${E.c}"><h2>${t(E.z,E.e)}</h2><small>${ty(E.y[0],E.ye[0])} – ${ty(E.y[1],E.ye[1])}</small>${E.nt?`<p>${t(...E.nt)}</p>`:''}</header><div class="vl">${items}</div></section>`})}
+  h+=`<section class="vs"><header class="vh era" style="--ec:${E.c}"><h2>${t(E.z,E.e)}</h2><small>${ty(E.y[0],E.ye[0])} – ${ty(E.y[1],E.ye[1])}</small>${nt?`<p>${t(...nt)}</p>`:''}</header><div class="vl">${items}</div></section>`})}
  P.$('vt').innerHTML=h};
 document.addEventListener('click',e=>{const s=e.target.closest('#subj button');if(s){st.sub=s.dataset.s;st.topic='all';save();drawHome();return}
  const v=e.target.closest('#vsw button');if(v){st.view=v.dataset.v;save();drawHome();return}

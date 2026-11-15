@@ -9,7 +9,7 @@ P.reg('photon',{html:P.build('photon',{
  exps:[{h:['實驗：用不同顏色和亮度的光照金屬','Experiment: shine light of different colors and brightness on a metal'],
   intro:[['選一種金屬，調整光的波長和亮度。黃點是被打出來的電子，飛得越快代表動能越大。','Pick a metal and set the light\'s wavelength and brightness. Yellow dots are freed electrons; faster means more kinetic energy.']],
   preds:[['ph1','預測 A：照在鈉金屬上，哪一種光能打出電子？','Prediction A: shining on sodium, which light frees electrons?'],['ph2','預測 B：已經有電子跑出來時，把光調得更亮，會？','Prediction B: with electrons already coming out, making the light brighter will?']],
-  sim:`<div class="ctrl"><span>${b('金屬','Metal')}</span><div class="seg" id="phm"></div></div><div class="fig"><canvas id="phc"></canvas></div><div class="ctrl">${P.sl('phl','波長','Wavelength',200,700,10,550)}${P.sl('phi','亮度','Brightness',10,100,10,50)}</div><div class="bars" id="phb"></div>`}],
+  sim:`<div class="ctrl"><span>${b('金屬','Metal')}</span><div class="seg" id="phm"></div></div><div class="fig"><canvas id="phc"></canvas></div><div class="ctrl">${P.sl('phl','波長','Wavelength',200,700,10,550)}${P.sl('phbr','亮度','Brightness',10,100,10,50)}</div><div class="bars" id="phb"></div>`}],
  idea:{h:['光子：每一份光的能量 E = hf','Photons: each packet of light carries E = hf'],
   p:[['想像光是一顆一顆的光子，每一顆的能量由頻率決定。一個電子一次只能吃掉一個光子。光子能量不夠大，吃再多顆也沒用，因為不能累積；夠大，就立刻跑出來，多出來的能量變成動能。','Picture light as individual photons, each with energy set by its frequency. An electron absorbs one photon at a time. If a photon\'s energy is too small, more photons don\'t help, because it can\'t store them up; if it\'s big enough, the electron leaves at once, and the leftover energy becomes kinetic energy.'],
    ['亮度代表每秒有多少顆光子，所以只影響電子的數量。這也解釋了為什麼紫外線會曬傷皮膚、讓相片褪色，可見光卻不會：紫外線的每一顆光子能量大到能打斷分子的化學鍵。','Brightness is how many photons arrive per second, so it only changes the number of electrons. It also explains why ultraviolet causes sunburn and fades photos while visible light doesn\'t: each UV photon has enough energy to break chemical bonds.']],
@@ -40,7 +40,7 @@ const draw=()=>{const[x,W,H]=fit($('phc'));if(W<10||H<120)return;x.clearRect(0,0
  x.fillStyle=col(lam);ph.forEach(p=>{x.beginPath();x.arc(p.x*W,p.y,3,0,7);x.fill()});
  x.fillStyle='#e8b923';es.forEach(e=>{x.beginPath();x.arc(e.x,e.y,4,0,7);x.fill()})};
 P.seg('phm',Object.entries(mets).map(([k,v])=>[k,`${v[0]}（φ = ${v[2]} eV）`,`${v[1]} (φ = ${v[2]} eV)`]),()=>met,v=>{met=v;bars()});
-P.slider('phl',v=>v+' nm',v=>{lam=v;bars()});P.slider('phi',v=>v+'%',v=>{if(KE()>0&&Math.abs(v-lastI)>=30)P.reveal('ph2');I=v;bars()});$('phi').addEventListener('change',()=>{lastI=I});
+P.slider('phl',v=>v+' nm',v=>{lam=v;bars()});P.slider('phbr',v=>v+'%',v=>{if(KE()>0&&Math.abs(v-lastI)>=30)P.reveal('ph2');I=v;bars()});$('phbr').addEventListener('change',()=>{lastI=I});
 P.run(dt=>{if(!$('phc').isConnected)return false;if(document.querySelector('main.lesson[data-id=photon]')?.hidden)return;const W=$('phc').clientWidth,H=$('phc').clientHeight,px=W*.62;
  acc+=dt*I*.6;while(acc>1){acc--;ph.push({x:0,y:20+Math.random()*(H-40)})}
  ph.forEach(p=>p.x+=dt*.5);ph=ph.filter(p=>{if(p.x*W>=px){if(KE()>0&&Math.random()<.5){const s=60+Math.sqrt(KE())*110,a=(Math.random()-.5)*1.6;es.push({x:px+16,y:p.y,vx:Math.cos(a)*s,vy:Math.sin(a)*s})}return false}return true});
