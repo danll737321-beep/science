@@ -4,9 +4,11 @@ High school physics as a story of questions: five parallel timelines (mechanics,
 
 Biology: six parallel timelines (cells, energy & photosynthesis, the body, disease & microbes, genetics, evolution & ecology), 37 nodes from Hooke to CRISPR and biodiversity, aligned to HS-LS1–LS4 and HS-ETS1.
 
-Chemistry: six parallel timelines (matter & atoms, the periodic table, bonds & molecular shape, reactions & energy, solutions/acids/bases, organic chemistry/materials/society), 36 nodes from Democritus to green chemistry, aligned to HS-PS1-1 through PS1-8, plus HS-ESS2/ESS3 and HS-ETS1. Includes an interactive periodic table (`#elements`) with a page for every element (`#el-Fe`): bilingual story and uses, discoverer and year, electron configuration, animated Bohr model, a quick prediction, its group, and links to related timeline nodes; color by category, state, electronegativity, or discovery era; a time machine shows which elements were known in any year.
+Chemistry: six parallel timelines (matter & atoms, the periodic table, bonds & molecular shape, reactions & energy, solutions/acids/bases, organic chemistry/materials/society), 36 nodes from Democritus to green chemistry, aligned to HS-PS1-1 through PS1-8, plus HS-ESS2/ESS3 and HS-ETS1.
 
 Earth & space: six parallel timelines (deep time, Earth's interior & plates, atmosphere & ocean, climate change, the solar system, stars & the universe), 36 nodes from Steno to the cosmic microwave background, aligned to HS-ESS1, HS-ESS2, and HS-ESS3.
+
+Periodic table: its own tab (`#elements`), a reference table of all 118 elements; each opens its own page (`#el-Fe`) with a bilingual story and uses, discoverer and year, key facts, electron configuration, Bohr model, and its group.
 
 Plain HTML/CSS/JS, no build step. Open `index.html` or serve with GitHub Pages (Settings → Pages → Deploy from branch → `main` / root).
 

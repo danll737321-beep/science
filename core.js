@@ -48,7 +48,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.q
 /* ---------- nodes + home ---------- */
 P.lines=[];P.nodes=[];P.subjects=P.subjects||[];
 /* standalone pages (e.g. the periodic table): {match(id), show(id), hide()}; homeExtra[subject]() adds html above that subject's timeline */
-P.pages=[];P.homeExtra={};
+P.pages=[];P.homeExtra={};P.tabs=[];
+P.subjNav=act=>P.subjects.map(s=>`<button aria-pressed="${s.id===act}" data-s="${s.id}" style="--ec:${s.c}">${P.t(s.z,s.e)}${s.ready?'':`<small>${P.t('即將推出','soon')}</small>`}</button>`).join('')+P.tabs.map(x=>`<button aria-pressed="${x.id===act}" data-go="${x.id}" style="--ec:${x.c}">${P.t(x.z,x.e)}</button>`).join('');
 P.addSubject=(sid,d)=>{d.lines.forEach(l=>l.s=sid);P.lines.push(...d.lines);P.nodes.push(...d.nodes);
  const li=id=>P.lines.findIndex(l=>l.id===id);P.nodes.sort((a,b)=>li(a.l)-li(b.l)||(a.ord??a.yr)-(b.ord??b.yr))};
 P.lineNodes=l=>P.nodes.filter(n=>n.l===l);
@@ -62,7 +63,7 @@ const card=(n,tag)=>{const on=!!P.lessons[n.id],L=LN(n.l),T=on?'a':'div';
  return `<${T} class="vc ${on?'':'off'}" style="--ec:${L.c}" ${on?`href="#${n.id}"`:''}>${tag?`<span class="vtag">${t(L.z,L.e)} ${lnum(n)}</span>`:`<span class="vnum">${lnum(n)}</span>`}<b>${t(n.z,n.e)}</b><span class="vq">${t(...n.q)}</span><span class="vgo">${on?t('進入 →','Open →'):t('即將推出','Coming soon')}</span></${T}>`};
 const row=(yr,body,cls='',c)=>`<div class="vr ${cls}" ${c?`style="--ec:${c}"`:''}><div class="vy">${yr}</div><div class="vd"><i></i></div><div class="vb">${body}</div></div>`;
 const drawHome=()=>{const S=P.subjects.find(s=>s.id===st.sub)||P.subjects[0];
- P.$('subj').innerHTML=P.subjects.map(s=>`<button aria-pressed="${s.id===S.id}" data-s="${s.id}" style="--ec:${s.c}">${t(s.z,s.e)}${s.ready?'':`<small>${t('即將推出','soon')}</small>`}</button>`).join('');
+ P.$('subj').innerHTML=P.subjNav(S.id);
  P.$('sh1').innerHTML=t(...S.title);P.$('slede').innerHTML=t(...S.lede);
  const lines=P.lines.filter(l=>l.s===S.id);
  if(!S.ready){P.$('ctl').hidden=true;P.$('vt').innerHTML=`<div class="soon"><p>${t(...S.plan)}</p></div>`;return}
@@ -78,7 +79,8 @@ const drawHome=()=>{const S=P.subjects.find(s=>s.id===st.sub)||P.subjects[0];
   const items=[...ns,...ws].sort((a,b)=>a.y-b.y).map(x=>x.h).join('');
   h+=`<section class="vs"><header class="vh era" style="--ec:${E.c}"><h2>${t(E.z,E.e)}</h2><small>${ty(E.y[0],E.ye[0])} – ${ty(E.y[1],E.ye[1])}</small>${nt?`<p>${t(...nt)}</p>`:''}</header><div class="vl">${items}</div></section>`})}
  P.$('vt').innerHTML=(P.homeExtra[S.id]?P.homeExtra[S.id]():'')+h};
-document.addEventListener('click',e=>{const s=e.target.closest('#subj button');if(s){st.sub=s.dataset.s;st.topic='all';save();drawHome();return}
+document.addEventListener('click',e=>{const g=e.target.closest('.subj [data-go]');if(g){location.hash=g.dataset.go;return}
+ const s=e.target.closest('.subj [data-s]');if(s){st.sub=s.dataset.s;st.topic='all';save();drawHome();if(location.hash.slice(1)&&location.hash!=='#home')location.hash='home';return}
  const v=e.target.closest('#vsw button');if(v){st.view=v.dataset.v;save();drawHome();return}
  const tp=e.target.closest('#tchips button');if(tp){st.topic=tp.dataset.t;save();drawHome();P.$('ctl').scrollIntoView({block:'start'})}});
 const drawRail=()=>{const cur=P.node(P.cur);if(!cur)return;const L=P.lines.find(l=>l.id===cur.l);
