@@ -47,6 +47,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.q
 
 /* ---------- nodes + home ---------- */
 P.lines=[];P.nodes=[];P.subjects=P.subjects||[];
+/* standalone pages (e.g. the periodic table): {match(id), show(id), hide()}; homeExtra[subject]() adds html above that subject's timeline */
+P.pages=[];P.homeExtra={};
 P.addSubject=(sid,d)=>{d.lines.forEach(l=>l.s=sid);P.lines.push(...d.lines);P.nodes.push(...d.nodes);
  const li=id=>P.lines.findIndex(l=>l.id===id);P.nodes.sort((a,b)=>li(a.l)-li(b.l)||(a.ord??a.yr)-(b.ord??b.yr))};
 P.lineNodes=l=>P.nodes.filter(n=>n.l===l);
@@ -75,7 +77,7 @@ const drawHome=()=>{const S=P.subjects.find(s=>s.id===st.sub)||P.subjects[0];
   const nt=E.nt&&!Array.isArray(E.nt)?E.nt[S.id]:E.nt;if(!ns.length&&!nt)return;
   const items=[...ns,...ws].sort((a,b)=>a.y-b.y).map(x=>x.h).join('');
   h+=`<section class="vs"><header class="vh era" style="--ec:${E.c}"><h2>${t(E.z,E.e)}</h2><small>${ty(E.y[0],E.ye[0])} – ${ty(E.y[1],E.ye[1])}</small>${nt?`<p>${t(...nt)}</p>`:''}</header><div class="vl">${items}</div></section>`})}
- P.$('vt').innerHTML=h};
+ P.$('vt').innerHTML=(P.homeExtra[S.id]?P.homeExtra[S.id]():'')+h};
 document.addEventListener('click',e=>{const s=e.target.closest('#subj button');if(s){st.sub=s.dataset.s;st.topic='all';save();drawHome();return}
  const v=e.target.closest('#vsw button');if(v){st.view=v.dataset.v;save();drawHome();return}
  const tp=e.target.closest('#tchips button');if(tp){st.topic=tp.dataset.t;save();drawHome();P.$('ctl').scrollIntoView({block:'start'})}});
@@ -116,9 +118,10 @@ P.arrow=(x,_,x1,y1,x2,y2,c,w=3)=>{const a=Math.atan2(y2-y1,x2-x1),L=Math.hypot(x
 P.seg=(el,opts,cur,on)=>{const r=()=>{P.$(el).innerHTML=opts.map(o=>`<button aria-pressed="${cur()===o[0]}" data-v="${o[0]}">${P.t(o[1],o[2])}</button>`).join('')};P.$(el).onclick=e=>{const bt=e.target.closest('button');if(!bt)return;on(bt.dataset.v);r()};P.onLang(r);r();return r};
 P.slider=(id,fmt,on)=>{const el=P.$(id),out=P.$(id+'v'),f=()=>{if(out)out.textContent=fmt(+el.value)};el.oninput=()=>{f();on(+el.value)};f()};
 P.sl=(id,z,e,min,max,step,val)=>`<label>${P.b(z,e)} <input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${val}"> <span class="read" id="${id}v"></span></label>`;
-const route=()=>{const id=location.hash.slice(1),les=P.lessons[id];
- P.$('home').hidden=!!les;P.$('rail').hidden=!les;R.classList.toggle('inlesson',!!les);
+const route=()=>{const id=location.hash.slice(1),les=P.lessons[id],pg=!les&&P.pages.find(p=>p.match(id));
+ P.$('home').hidden=!!(les||pg);P.$('rail').hidden=!les;R.classList.toggle('inlesson',!!(les||pg));
  document.querySelectorAll('main.lesson').forEach(m=>m.hidden=m.dataset.id!==id);
+ P.pages.forEach(p=>{if(p!==pg)p.hide()});if(pg)pg.show(id);
  if(les){P.cur=id;if(!les.root){const m=document.createElement('main');m.className='lesson';m.dataset.id=id;m.innerHTML=les.html;const nd=P.nodes.find(n=>n.id===id),hd=m.querySelector('.hero>div');if(nd&&hd)hd.insertAdjacentHTML('beforeend',`<p class="dq">${P.b('核心問題：'+nd.q[0],'Driving question: '+nd.q[1])}</p>`);P.$('lessons').appendChild(m);les.root=m;les.init&&les.init(m)}drawRail()}
  scrollTo(0,0)};
 const setLang=l=>{P.L=l;R.dataset.lang=l;R.lang=l==='en'?'en':'zh-Hant';
